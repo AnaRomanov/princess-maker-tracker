@@ -11,9 +11,11 @@ Syncing across devices:
 - If you don't sign in, progress is saved only to that browser's local storage (key: lifemaker.v3) and won't follow you to another device or browser.
 - Data is stored in a single Supabase table (game_state), one row per user, protected by row-level security so only you can read or write your own row.
 
-Running it locally:
-- Open index.html with the assets folder beside it directly (file://), or serve it with any static file server for a closer match to production (e.g. `python3 -m http.server 8420`).
-- Cloud sign-in requires the dev server's URL to be added to Supabase's Authentication > URL Configuration > Redirect URLs allow-list; opening the raw file won't be able to sign in.
+Running it locally (Next.js):
+- `npm install`, then copy `.env.local.example` to `.env.local` and fill in your Supabase project URL and anon key.
+- `npm run dev` and open http://localhost:3000.
+- Cloud sign-in requires the dev server's URL to be added to Supabase's Authentication > URL Configuration > Redirect URLs allow-list; without it, sign-in emails will fail to redirect back.
+- Game-design data (activities, stats, ranks, economy constants) lives in `lib/gameConfig.js`, separate from the UI code in `components/`.
 
 Compatibility:
 - Woodworking Workshop and Botanical Garden changed their stat rules in v6; plans made under the old rules keep scoring against them until replanned.
