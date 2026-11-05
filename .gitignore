@@ -1,1 +1,10 @@
 .idea/
+
+# Next.js
+/node_modules
+/.next/
+/out/
+.env.local
+next-env.d.ts
+npm-debug.log*
+
